@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Country</string>
+    <string name="country_name">Country Name</string>
+    <string name="error">error</string>
+</resources>
