@@ -56,6 +56,19 @@ class ListViewModelTest {
         assertEquals(false, listViewModel.loading.value)
     }
 
+    @Test
+    fun getCountriesFailed() {
+
+        testSingle = Single.error(Throwable())
+
+        `when`(countriesService.getCountries()).thenReturn(testSingle)
+
+        listViewModel.refresh()
+
+        assertEquals(true,listViewModel.countryLoadError.value)
+        assertEquals(false,listViewModel.loading.value)
+    }
+
     @Before
     fun setUpRxSchedulers() {
         val immediate = object : Scheduler() {
